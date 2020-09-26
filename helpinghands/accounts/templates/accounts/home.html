@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Home page</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+     
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            {% if user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Add Requirement</a>
+                </li>
+                
+            {% endif %}
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <span style="color: white;">Hi, {{ request.user }}  &nbsp;&nbsp;&nbsp;</span>
+            <a href="{% url 'accounts-logout' %}" class="btn btn-danger" id="">Logout</a>
+          </form>
+        </div>
+      </nav>
+      <br><br>
+
+      <center><h2><b>List of Requirements</b></h2></center>
+
+      <div>
+        <div class="container col-sm-10" style="margin-left: 10%;">
+            <div class="row py-3">
+              <div class="card shadow-lg p-1 mb-5 " style="width: 17rem; border-radius: 10px;margin-left: auto;margin-right: auto;">
+                  <img class="card-img-top" style="border-top-left-radius:10px;border-top-right-radius:10px;height: 12rem;" src="https://img.freepik.com/free-photo/many-type-medical-drugs-pills-capsules-white_51195-3917.jpg?size=626&ext=jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title" style="font-family:Roboto ;"><b>Product Name</b></h5>
+                    <h6 class="card-title" style="font-family:Roboto ;"><b>NGO name</b></h6>
+                    <p class="card-text" style="font-family:Roboto ;">Quantity Required:</p>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                        50
+                      </div>
+                    </div><br><br>
+                    <center><a href="#" class="btn btn-success" id="" style="width: 200px;">Donate</a></center>
+                  </div>
+                </div>
+                <div class="card shadow-lg p-1 mb-5 " style="width: 17rem; border-radius: 10px;margin-left: auto;margin-right: auto;">
+                    <img class="card-img-top" style="border-top-left-radius:10px;border-top-right-radius:10px;height: 12rem;" src="data:image/jpeg;base64,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" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family:Roboto ;"><b>Product Name</b></h5>
+                      <h6 class="card-title" style="font-family:Roboto ;"><b>NGO name</b></h6>
+                      <p class="card-text" style="font-family:Roboto ;">Quantity Required:</p>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                          50
+                        </div>
+                      </div><br><br>
+                      <center><a href="#" class="btn btn-success" id="" style="width: 200px;">Donate</a></center>
+                    </div>
+                  </div>
+                  <div class="card shadow-lg p-1 mb-5 " style="width: 17rem; border-radius: 10px;margin-left: auto;margin-right: auto;">
+                    <img class="card-img-top" style="border-top-left-radius:10px;border-top-right-radius:10px;height: 12rem;" src="https://img.freepik.com/free-photo/many-type-medical-drugs-pills-capsules-white_51195-3917.jpg?size=626&ext=jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family:Roboto ;"><b>Product Name</b></h5>
+                      <h6 class="card-title" style="font-family:Roboto ;"><b>NGO name</b></h6>
+                      <p class="card-text" style="font-family:Roboto ;">Quantity Required:</p>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                          50
+                        </div>
+                      </div><br><br>
+                      <center><a href="#" class="btn btn-success" id="" style="width: 200px;">Donate</a></center>
+                    </div>
+                  </div>
+                  <div class="card shadow-lg p-1 mb-5 " style="width: 17rem; border-radius: 10px;margin-left: auto;margin-right: auto;">
+                    <img class="card-img-top" style="border-top-left-radius:10px;border-top-right-radius:10px;height: 12rem;" src="https://img.freepik.com/free-photo/many-type-medical-drugs-pills-capsules-white_51195-3917.jpg?size=626&ext=jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family:Roboto ;"><b>Product Name</b></h5>
+                      <h6 class="card-title" style="font-family:Roboto ;"><b>NGO name</b></h6>
+                      <p class="card-text" style="font-family:Roboto ;">Quantity Required:</p>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                          50
+                        </div>
+                      </div><br><br>
+                      <center><a href="#" class="btn btn-success" id="" style="width: 200px;">Donate</a></center>
+                    </div>
+                  </div>
+                  <div class="card shadow-lg p-1 mb-5 " style="width: 17rem; border-radius: 10px;margin-left: auto;margin-right: auto;">
+                    <img class="card-img-top" style="border-top-left-radius:10px;border-top-right-radius:10px;height: 12rem;" src="https://img.freepik.com/free-photo/many-type-medical-drugs-pills-capsules-white_51195-3917.jpg?size=626&ext=jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family:Roboto ;"><b>Product Name</b></h5>
+                      <h6 class="card-title" style="font-family:Roboto ;"><b>NGO name</b></h6>
+                      <p class="card-text" style="font-family:Roboto ;">Quantity Required:</p>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                          50
+                        </div>
+                      </div><br><br>
+                      <center><a href="#" class="btn btn-success" id="" style="width: 200px;">Donate</a></center>
+                    </div>
+                  </div>
+                  <div class="card shadow-lg p-1 mb-5 " style="width: 17rem; border-radius: 10px;margin-left: auto;margin-right: auto;">
+                    <img class="card-img-top" style="border-top-left-radius:10px;border-top-right-radius:10px;height: 12rem;" src="https://img.freepik.com/free-photo/many-type-medical-drugs-pills-capsules-white_51195-3917.jpg?size=626&ext=jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family:Roboto ;"><b>Product Name</b></h5>
+                      <h6 class="card-title" style="font-family:Roboto ;"><b>NGO name</b></h6>
+                      <p class="card-text" style="font-family:Roboto ;">Quantity Required:</p>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                          50
+                        </div>
+                      </div><br><br>
+                      <center><a href="#" class="btn btn-success" id="" style="width: 200px;">Donate</a></center>
+                    </div>
+                  </div>
+                  <div class="card shadow-lg p-1 mb-5 " style="width: 17rem; border-radius: 10px;margin-left: auto;margin-right: auto;">
+                    <img class="card-img-top" style="border-top-left-radius:10px;border-top-right-radius:10px;height: 12rem;" src="https://img.freepik.com/free-photo/many-type-medical-drugs-pills-capsules-white_51195-3917.jpg?size=626&ext=jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="font-family:Roboto ;"><b>Product Name</b></h5>
+                      <h6 class="card-title" style="font-family:Roboto ;"><b>NGO name</b></h6>
+                      <p class="card-text" style="font-family:Roboto ;">Quantity Required:</p>
+                      <div class="progress">
+                        <div class="progress-bar progress-bar active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                          50
+                        </div>
+                      </div><br><br>
+                      <center><a href="#" class="btn btn-success" id="" style="width: 200px;">Donate</a></center>
+                    </div>
+                  </div>
+            </div>
+            <br>
+        </div>
+        </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

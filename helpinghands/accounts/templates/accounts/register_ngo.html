@@ -24,10 +24,10 @@
                   Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{% url 'accounts-register' %}">User</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="{% url 'accounts-register-ngo' %}">NGO Admin</a>
-                </div>
+                    <a class="dropdown-item" href="{% url 'accounts-register' %}">User</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'accounts-register-ngo' %}">NGO Admin</a>
+                  </div>
               </li>
             <li class="nav-item ">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -48,12 +48,8 @@
       
       <div class="container">
         <br><br>
-
-        <h1>Login Page:</h1>
       
-        {% for message in messages %}
-            <h3>{{ message }}</h3>
-        {% endfor %}
+        <h2>Register Here:</h2>
         
         <br>
         <form method="POST">
@@ -69,41 +65,55 @@
               </div> -->
 
 
-            <style>
-                .form-control{
-                    width: 300px;
-                }
-            </style>
+
 
             
             <div class="form-group row">
-                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                <label for="inputName" class="col-sm-2 col-form-label">Username for NGO</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    {{ form.username }}
                 </div>
               </div>
-              <!-- <div class="form-group row ">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+              <div class="form-group row">
+                <label for="inputName" class="col-sm-2 col-form-label">Name of the NGO</label>
+                <div class="col-sm-10">
+                    {{ form.first_name }}
+                </div>
+              </div>
+              <div class="form-group row ">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Official Email</label>
                 <div class="col-sm-10">
                   {{ form.email }}
                 </div>
-              </div> -->
+              </div>
             <div class="form-group row">
-              <label for="password" class="col-sm-2 col-form-label">Password</label>
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" >
+                {{ form.password1 }}
               </div>
             </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm Password</label>
+                <div class="col-sm-10">
+                  {{ form.password2 }}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Check this if you want to post requirements (recommended)</label>
+                <div class="col-sm-10">
+                    <br>
+                  {{ form.is_staff }}
+                </div>
+              </div>
             
-            
-            
+              <p style="color: red;">{{ form.errors }}</p>
 
-              <!-- Don't have an account? <a href="#" >Register</a> -->
+              Already have an account? <a href="{% url 'accounts-login' %}" >Login</a>
             
             <br><br>
               <div class="form-group row">
               <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Register</button>
               </div>
             </div>
 
@@ -114,7 +124,15 @@
 
       </div>
 
-      
+      <script>
+          var fields = document.getElementsByTagName('input')
+          
+          fields[2].placeholder='Eg. Childline123';
+          fields[3].placeholder='Eg. Childline India (NGO)';
+          fields[4].placeholder='Email';
+          fields[5].placeholder='Password';
+          fields[6].placeholder='Confirm Password';
+      </script>
 
       
     <!-- Optional JavaScript -->
