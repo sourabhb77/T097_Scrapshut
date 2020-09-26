@@ -3,19 +3,19 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # Create your models here.
-class NGO(models.Model):
+
+class NGO_admin(models.Model):
     email_id=models.EmailField(null=True)
-    NGO_password=models.CharField(max_length=50)
-    NGO_id=models.CharField(max_length=50)
-    NGO_name=models.CharField(max_length=50)
-    NGO_address=models.CharField(max_length=1000)
+    NGO_password=models.CharField(max_length=50,null=True)
+    NGO_id=models.CharField(max_length=50,null=True)
+    NGO_name=models.CharField(max_length=50,null=True)
+    NGO_address=models.CharField(max_length=1000,null=True)
   
-def __str__(self):
+    def __str__(self):
         return self.NGO_name
 
-
 class Requirement(models.Model):
-    email=models.ForeignKey(NGO,on_delete=models.CASCADE,null=True)
+    email=models.ForeignKey(NGO_admin,on_delete=models.CASCADE,null=True)
     requirement_type=models.CharField(max_length=20)
     requirement_quantity=models.CharField(max_length=10)
     requirement_name=models.CharField(max_length=20)
