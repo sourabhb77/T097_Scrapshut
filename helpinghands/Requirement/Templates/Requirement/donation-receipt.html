@@ -1,0 +1,28 @@
+{% extends 'Requirement/base.html' %}
+{% block content %}
+<div>
+    <div class="container col-sm-6 py-3">
+        <div class="card" >
+            <h4 class="card-header" align="center">Your Donation receipt</h4>
+            <div class="card-body">
+              <p class="card-title" style="color: blue;"><b>Thank you for donating. Your donation is in proper hands</b></p>
+              <p class="card-text"><b>Type of donation:</b></p>
+              <p class="card-text">{{type}}</p>
+              <p class="card-text"><b>Quantity of donation:</b></p>
+              <p class="card-text">{{quantity}}</p>
+              <p class="card-text"><b>Donation date:</b></p>
+              <p class="card-text">{{ datetime|date:"M d, Y" }}</p>
+              <div class="row">
+                  <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary"><a href="#" style="color:white">Veiw requirement</a></button>
+                  </div>
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary"><a href="/requirement/donation-form" style="color:white">Donate More</a></button>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+{% endblock %}

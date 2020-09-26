@@ -24,3 +24,13 @@ class Requirement(models.Model):
 
     def __str__(self):
         return self.requirement_type
+
+class Donation(models.Model):
+    doner_email=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    donation_type=models.CharField(max_length=20)
+    donation_name=models.CharField(max_length=20)
+    donation_quantity=models.CharField(max_length=20)
+    donation_date=models.DateTimeField(default = timezone.now)
+
+    def __str__(self):
+        return self.donation_name
