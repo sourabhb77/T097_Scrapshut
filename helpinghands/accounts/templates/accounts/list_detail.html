@@ -1,36 +1,7 @@
 {% extends "accounts/base.html" %}
 {% load crispy_forms_tags %} 
 {% block content%}
-<div>
-  <!-- <img
-    class="card-img-top"
-    style="
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      height: 12rem;
-    "
-    src="https://img.freepik.com/free-photo/many-type-medical-drugs-pills-capsules-white_51195-3917.jpg?size=626&ext=jpg"
-    alt="Card image cap"
-  />
-  <div class="card-body">
-    <h5 class="card-title" style="font-family: Roboto"><b>Card title</b></h5>
-    <p class="card-text" style="font-family: Roboto">
-      
-    </p>
-    <p class="card-text" style="font-family: Roboto"><b>Requirement</b></p>
-    <div class="progress">
-      <div
-        class="progress-bar progress-bar active"
-        role="progressbar"
-        aria-valuenow="50"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style="width: 50%"
-      >
-        50%
-      </div>
-    </div> -->
-  </div>
+
 
 
   <style>
@@ -38,6 +9,8 @@
         width: 950px;
     }
 </style>
+
+
 
 <center><h2>Requirement Description</h2></center><br>
 
@@ -88,10 +61,10 @@
           <h5 class="text-left">Select Quantity:</h5>
       </div>
       <div class="col-sm-5">
-          <input type="range" class="custom-range" min="0" max="800" step="100" id="customRange3" style="width: 100%;">
+          <input type="number" name="quantity_donated" id="customRange3" style="width: 100%;">
       </div>
       <div class="col-sm-4">
-          <center><a href="#" class="btn btn-success" id="" style="width: 200px; height: 35px;">Donate Now!</a></center>
+          <center><a href="{% url 'receipt' %}" class="btn btn-success" id="" style="width: 200px; height: 35px;">Donate Now!</a></center>
       </div>
   </div>
   <br><br>
