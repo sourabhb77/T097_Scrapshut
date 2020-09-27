@@ -6,6 +6,10 @@ from datetime import datetime
 def require_form(request):
     return render(request,'Requirement/requirement.html')
 
+def about(request):
+    return render(request,'Requirement/about.html')
+
+
 def receipt(request):
     if request.method=='POST':
         product_type=request.POST.get('type')
